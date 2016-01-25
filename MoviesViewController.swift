@@ -51,6 +51,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                             
                             self.movies = responseDictionary["results"] as! [NSDictionary]
                             self.tableView.reloadData()
+                            self.refreshControl.endRefreshing()
                             
                     }
                 }
@@ -60,9 +61,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
 
         
-        
-        
-        
+        // Initialize a UIRefreshControl
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0)    
+    
         
         
     }
