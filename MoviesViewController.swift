@@ -22,7 +22,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -94,6 +94,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let movie = movies! [indexPath.row]
         let title = movie ["title"] as! String
         let overview = movie ["overview"] as! String
+        let rating = movie["vote_average"] as? String
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
         

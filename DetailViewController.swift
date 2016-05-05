@@ -20,6 +20,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var infoView: UIView!
     
+    @IBOutlet weak var ratingLabel: UILabel!
     
     var movie: NSDictionary!
     
@@ -35,6 +36,9 @@ class DetailViewController: UIViewController {
         
         let overview = movie["overview"]
         overviewLabel.text = overview as? String
+        
+        let rating = movie!["vote_average"] as! double_t
+        ratingLabel.text = "Rated: " + "\(rating)" + "/10"
         
         overviewLabel.sizeToFit()
         
